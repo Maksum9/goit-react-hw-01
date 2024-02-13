@@ -1,4 +1,3 @@
-
 import Profile from './Profile/Profile';
 import FriendList from './Friends/FriendListItem';
 import TransactionHistory from './Statics/TransactionHistory';
@@ -9,11 +8,11 @@ import transactions from '../json/transactions.json';
 const App = () => {
   return (
     <>
-      <Profile
-        name={userData.username}
+     <Profile
+        username={userData.username}
         tag={userData.tag}
         location={userData.location}
-        image={userData.avatar}
+        avatar={userData.avatar}
         stats={userData.stats}
       />
       <FriendList friends={friends} />
