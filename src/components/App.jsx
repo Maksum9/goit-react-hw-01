@@ -1,10 +1,10 @@
-import React from 'react';
+
 import Profile from './Profile/Profile';
 import FriendList from './Friends/FriendListItem';
 import TransactionHistory from './Statics/TransactionHistory';
-import userData from '../userData.json';
-import friends from '../friends.json';
-import transactions from '../transactions.json';
+import userData from '../json/userData.json';
+import friends from '../json/friends.json';
+import transactions from '../json/transactions.json';
 
 const App = () => {
   return (

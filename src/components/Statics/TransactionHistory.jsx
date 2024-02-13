@@ -1,27 +1,56 @@
-import React from 'react';
-import styles from './TransactionHistory.module.css';
+import "./TransactionHistory.module.css";
 
-const TransactionHistory = ({ items }) => {
+import PropTypes from 'prop-types';
+
+const createColor = () => {
+  const color =
+    'rgba(' +
+    Math.round(Math.random() * 255) +
+    ',' +
+    Math.round(Math.random() * 255) +
+    ',' +
+    Math.round(Math.random() * 255) +
+    ',' +
+    0.2 +
+    ')';
+
+  return color;
+};
+
+export const TransactionHistory = ({ items }) => {
   return (
-    <table className={styles.transactionTable}>
+    <table>
       <thead>
-        <tr>
+        <tr style={{ backgroundColor: createColor() }}>
           <th>Type</th>
           <th>Amount</th>
           <th>Currency</th>
         </tr>
       </thead>
+
       <tbody>
-        {items.map(({ id, type, amount, currency }) => (
-          <tr key={id}>
-            <td>{type}</td>
-            <td>{amount}</td>
-            <td>{currency}</td>
-          </tr>
-        ))}
+        {items.map(({ id, type, amount, currency }) => {
+          return (
+            <tr key={id} style={{ backgroundColor: createColor() }}>
+              <td>{type}</td>
+              <td>{amount}</td>
+              <td>{currency}</td>
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   );
 };
 
+TransactionHistory.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+      amount: PropTypes.string.isRequired,
+      currency: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
 export default TransactionHistory;
