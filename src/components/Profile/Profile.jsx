@@ -1,7 +1,8 @@
-import css from './Profile.module.css';
+import React from 'react';
+import css from './Profile.module.css'; // Припустимо, що у вас є файл стилів з іменем Profile.module.css
 import PropTypes from 'prop-types';
 
-export const Profile = ({ username, tag, location, avatar, stats }) => {
+const Profile = ({ username, tag, location, avatar, stats }) => {
   return (
     <div className={css.profile}>
       <div className={css.description}>
@@ -36,4 +37,5 @@ Profile.propTypes = {
   avatar: PropTypes.string.isRequired,
   stats: PropTypes.object.isRequired,
 };
-export default Profile
+
+export default Profile;
