@@ -1,5 +1,5 @@
 import React from 'react';
-import css from './Profile.module.css'; // Припустимо, що у вас є файл стилів з іменем Profile.module.css
+import css from './Profile.module.css'; 
 import PropTypes from 'prop-types';
 
 const Profile = ({ username, tag, location, avatar, stats }) => {
