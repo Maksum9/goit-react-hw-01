@@ -1,5 +1,5 @@
 import React from 'react';
-import FriendListItem from './FriendListItem';  // Виправлений імпорт
+import FriendListItem from './FriendListItem';
 import styles from './FriendList.module.css';
 import PropTypes from 'prop-types';
 
@@ -8,13 +8,12 @@ const FriendList = ({ friends }) => {
     <div className={styles.friends}>
       <ul className={styles.friends__list}>
         {friends.map(({ avatar, name, isOnline, id }) => (
-          <li className={styles.friends__item} key={id}>
-            <span className={`${styles.friends__status} ${styles[isOnline]}`}>
-              {isOnline}
-            </span>
-            <img className={styles.avatar} src={avatar} alt={name} />
-            <p className={styles.friends__name}>{name}</p>
-          </li>
+          <FriendListItem
+            key={id}
+            avatar={avatar}
+            name={name}
+            isOnline={isOnline}
+          />
         ))}
       </ul>
     </div>
