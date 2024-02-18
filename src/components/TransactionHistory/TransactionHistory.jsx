@@ -1,6 +1,7 @@
-import "./TransactionHistory.module.css";
-
+import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './TransactionHistory.module.css';
+
 
 const createColor = () => {
   const color =
@@ -19,7 +20,7 @@ const createColor = () => {
 
 export const TransactionHistory = ({ items }) => {
   return (
-    <table>
+    <table className={styles.transactionHistory}>
       <thead>
         <tr style={{ backgroundColor: createColor() }}>
           <th>Type</th>
@@ -53,4 +54,5 @@ TransactionHistory.propTypes = {
     })
   ).isRequired,
 };
+
 export default TransactionHistory;
