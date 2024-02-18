@@ -1,32 +1,29 @@
 import React from 'react';
 import FriendListItem from './FriendListItem';
-import styles from './FriendList.module.css';
 import PropTypes from 'prop-types';
+import styles from './FriendList.module.css';
 
 const FriendList = ({ friends }) => {
   return (
-    <div className={styles.friends}>
-      <ul className={styles.friends__list}>
-        {friends.map(({ avatar, name, isOnline, id }) => (
-          <FriendListItem
-            key={id}
-            avatar={avatar}
-            name={name}
-            isOnline={isOnline}
-          />
-        ))}
-      </ul>
-    </div>
+
+    <ul className={styles.friends__list}>
+      {friends.map((friend) => (
+        <li key={friend.id}>
+          <FriendListItem {...friend} />
+        </li>
+      ))}
+    </ul>
+    
   );
 };
 
 FriendList.propTypes = {
   friends: PropTypes.arrayOf(
     PropTypes.shape({
+      id: PropTypes.number.isRequired,
       avatar: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       isOnline: PropTypes.bool.isRequired,
-      id: PropTypes.number.isRequired,
     })
   ).isRequired,
 };
